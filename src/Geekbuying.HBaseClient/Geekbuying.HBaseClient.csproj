@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ProtoBufGenerated\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Polly" Version="5.7.0" />
+    <PackageReference Include="protobuf-net" Version="2.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\schemas\ProtoBuf\Generated\*.cs">
+      <Link>ProtoBufGenerated\%(FileName)</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>
