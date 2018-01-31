@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Geekbuying.HBaseClient.Tests
@@ -8,7 +7,6 @@ namespace Geekbuying.HBaseClient.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
