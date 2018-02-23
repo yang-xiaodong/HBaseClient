@@ -31,7 +31,6 @@ namespace Geekbuying.HBaseClient
         public int TimeoutMillis { get; set; }
         public int SerializationBufferSize { get; set; }
         public int ReceiveBufferSize { get; set; }
-        public bool UseNagle { get; set; }
         public int Port { get; set; }
         public Dictionary<string, string> AdditionalHeaders { get; set; }
         public string AlternativeHost { get; set; }
@@ -49,12 +48,11 @@ namespace Geekbuying.HBaseClient
         {
             return new RequestOptions
             {
-                RetryPolicy = Policy.Handle<HttpRequestException>().WaitAndRetry(1, x => TimeSpan.FromSeconds(2)),
+                RetryPolicy = Policy.Handle<HttpRequestException>().WaitAndRetryAsync(2, x => TimeSpan.FromSeconds(1)),
                 KeepAlive = true,
                 TimeoutMillis = 30000,
                 ReceiveBufferSize = 1024 * 1024 * 1,
                 SerializationBufferSize = 1024 * 1024 * 1,
-                UseNagle = false,
                 AlternativeEndpoint = Constants.RestEndpointBase,
                 Port = 443,
                 AlternativeHost = null
