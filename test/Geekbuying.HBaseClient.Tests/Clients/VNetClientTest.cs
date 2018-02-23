@@ -29,11 +29,11 @@ namespace Geekbuying.HBaseClient.Tests.Clients
         {
             var regionServerIPs = new List<string>();
             // TODO automatically retrieve IPs from Ambari REST APIs   
-            regionServerIPs.Add("10.17.0.11");
-            regionServerIPs.Add("10.17.0.13");
+            regionServerIPs.Add("192.168.10.110");
+            //regionServerIPs.Add("10.17.0.13");
 
             var options = RequestOptions.GetDefaultOptions();
-            options.Port = 8090;
+            options.Port = 8080;
             options.AlternativeEndpoint = "";
 
             return new HBaseClient(null, options, new LoadBalancerRoundRobin(regionServerIPs));

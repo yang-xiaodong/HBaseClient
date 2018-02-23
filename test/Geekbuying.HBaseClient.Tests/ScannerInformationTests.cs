@@ -22,8 +22,6 @@ using Xunit;
 namespace Geekbuying.HBaseClient.Tests
 {
     // ReSharper disable InconsistentNaming
-
-
     public class When_I_create_ScannerInformation : ContextSpecification
     {
         private const string expectedScannerId = "/140614753560332aa73e8";

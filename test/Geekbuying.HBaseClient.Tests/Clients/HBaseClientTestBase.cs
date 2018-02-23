@@ -39,7 +39,7 @@ namespace Geekbuying.HBaseClient.Tests.Clients
             var client = CreateClient();
 
             // ensure tables from previous tests are cleaned up
-            var tables = client.ListTablesAsync().Result;
+            var tables = client.ListTablesAsync().GetAwaiter().GetResult();
             foreach (var name in tables.name)
                 if (name.StartsWith(TestTablePrefix, StringComparison.Ordinal))
                     client.DeleteTableAsync(name).Wait();

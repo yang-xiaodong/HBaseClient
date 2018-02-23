@@ -66,7 +66,7 @@ namespace Geekbuying.HBaseClient.Tests
         {
             _credentials = ClusterCredentialsFactory.CreateFromFile(@".\credentials.txt");
             var options = RequestOptions.GetDefaultOptions();
-            options.RetryPolicy = Policy.Handle<HttpRequestException>().WaitAndRetry(0, x => TimeSpan.Zero);
+            options.RetryPolicy = Policy.Handle<HttpRequestException>().WaitAndRetryAsync(0, x => TimeSpan.Zero);
 
             var client = new HBaseClient(_credentials, options);
 
