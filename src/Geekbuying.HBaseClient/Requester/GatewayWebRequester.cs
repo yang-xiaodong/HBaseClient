@@ -118,7 +118,6 @@ namespace Geekbuying.HBaseClient.Requester
             Debug.WriteLine("Issuing request {0} to endpoint {1}", Trace.CorrelationManager.ActivityId, builder.Uri);
             var httpWebRequest = WebRequest.CreateHttp(builder.Uri);
             httpWebRequest.ServicePoint.ReceiveBufferSize = options.ReceiveBufferSize;
-            httpWebRequest.ServicePoint.UseNagleAlgorithm = options.UseNagle;
             httpWebRequest.Timeout = options.TimeoutMillis; // This has no influence for calls that are made Async
             httpWebRequest.KeepAlive = options.KeepAlive;
             httpWebRequest.Credentials = _credentialCache;

@@ -93,7 +93,7 @@ namespace Geekbuying.HBaseClient.Requester
 
                 var httpWebRequest = WebRequest.CreateHttp(target);
                 //httpWebRequest.ServicePoint.ReceiveBufferSize = options.ReceiveBufferSize;
-                httpWebRequest.ServicePoint.UseNagleAlgorithm = options.UseNagle;
+                //httpWebRequest.ServicePoint.UseNagleAlgorithm = options.UseNagle;
                 httpWebRequest.Timeout = options.TimeoutMillis; // This has no influence for calls that are made Async
                 httpWebRequest.KeepAlive = options.KeepAlive;
                 httpWebRequest.Credentials = _credentialCache;
