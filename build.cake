@@ -51,16 +51,6 @@ Task("Build")
 	}
 });
 
-Task("Test")
-	.IsDependentOn("Build")
-	.Does(() =>
-{
-	foreach (var testProject in build.TestProjectFiles)
-	{
-		DotNetCoreTest(testProject.FullPath);
-	}
-});
-
 Task("Pack")
 	.Does(() =>
 {
@@ -79,7 +69,6 @@ Task("Pack")
 
 Task("Default")
 	.IsDependentOn("Build")
-	.IsDependentOn("Test")
 	.IsDependentOn("Pack")
 	.Does(() =>
 {
